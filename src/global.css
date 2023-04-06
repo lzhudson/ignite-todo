@@ -17,3 +17,19 @@
 
   --fontInter: 'Inter', sans-serif;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+  font-family: var(--fontInter);
+  font-weight: 400;
+  font-size: 1rem;
+}
