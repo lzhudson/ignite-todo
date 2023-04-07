@@ -1,0 +1,23 @@
+.header {
+  background-color: var(--gray-700);
+}
+.container {
+  padding: 72px 0 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.highlightBlue {
+  color: var(--blue);
+}
+
+.highlightPurple {
+  color: var(--purple-dark);
+}
