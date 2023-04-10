@@ -6,21 +6,25 @@ interface TaskItemProps {
   description: string;
   onUpdateStatusTask: () => void;
   hasFinished: boolean;
+  onDeleteTask: () => void;
 }
 
-export function TaskItem({description, onUpdateStatusTask, hasFinished } : TaskItemProps) {
+export function TaskItem({ description, onUpdateStatusTask, hasFinished, onDeleteTask }: TaskItemProps) {
 
   function handleToggleFinishTask() {
-    console.log('clicked')
     onUpdateStatusTask();
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask();
   }
 
   return (
     <li className={`${styles.taskItem} ${hasFinished ? styles.taskItemFinished : ''}`}>
       <div className={styles.taskItemRadioGroup}>
-        <input 
+        <input
           checked={hasFinished}
-          type="radio" 
+          type="radio"
           onChange={handleToggleFinishTask}
         />
         <Check
@@ -29,12 +33,15 @@ export function TaskItem({description, onUpdateStatusTask, hasFinished } : TaskI
         />
       </div>
       <p>
-        Integer urna interdum massa libero auctor neque turpis turpis semper. 
+        Integer urna interdum massa libero auctor neque turpis turpis semper.
         Duis vel sed fames integer.
       </p>
-      <Trash
-        size={34}
-      />
+      <button title="Deletar Tarefa" onClick={handleDeleteTask}>
+        <Trash
+          size={24}
+        />
+      </button>
+
     </li>
   )
 }
