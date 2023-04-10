@@ -1,24 +1,47 @@
 import { Check, Trash } from "@phosphor-icons/react";
 import styles from './TaskItem.module.css';
 import { useState } from "react";
-export function TaskItem() {
-  const [hasFinishedTask, setHasFinisihedTask] = useState(false);
+
+interface TaskItemProps {
+  description: string;
+  onUpdateStatusTask: () => void;
+  hasFinished: boolean;
+  onDeleteTask: () => void;
+}
+
+export function TaskItem({ description, onUpdateStatusTask, hasFinished, onDeleteTask }: TaskItemProps) {
+
+  function handleToggleFinishTask() {
+    onUpdateStatusTask();
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask();
+  }
+
   return (
-    <li className={`${styles.taskItem} ${hasFinishedTask ? styles.taskItemFinished : ''}`}>
+    <li className={`${styles.taskItem} ${hasFinished ? styles.taskItemFinished : ''}`}>
       <div className={styles.taskItemRadioGroup}>
-        <input type="radio" />
+        <input
+          checked={hasFinished}
+          type="radio"
+          onChange={handleToggleFinishTask}
+        />
         <Check
           size={7}
           weight="bold"
         />
       </div>
       <p>
-        Integer urna interdum massa libero auctor neque turpis turpis semper. 
+        Integer urna interdum massa libero auctor neque turpis turpis semper.
         Duis vel sed fames integer.
       </p>
-      <Trash
-        size={34}
-      />
+      <button title="Deletar Tarefa" onClick={handleDeleteTask}>
+        <Trash
+          size={24}
+        />
+      </button>
+
     </li>
   )
 }
