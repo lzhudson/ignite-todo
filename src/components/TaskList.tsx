@@ -16,7 +16,7 @@ export function TaskList({ tasks, onUpdateStatusTask, onDeleteTask }: TaskListPr
       <TaskHeader 
         tasks={tasks}
       />
-      {tasks ? (
+      {tasks.length ? (
         <ul className={styles.taskList}>
           {tasks.map(task => (
             <TaskItem 
