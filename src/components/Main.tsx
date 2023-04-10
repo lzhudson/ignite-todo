@@ -32,6 +32,11 @@ export function Main() {
     setTasks(tasksUpdated);
   }
 
+  function deleteTask(taskId: string) {
+    const tasksUpdated = tasks.filter(task => task.id !== taskId);
+    setTasks(tasksUpdated);
+  }
+
   return (
     <main>
       <section>
@@ -42,6 +47,7 @@ export function Main() {
           <TaskList 
             tasks={tasks}
             onUpdateStatusTask={toggleFinishTask}
+            onDeleteTask={deleteTask}
           />
         </div>
       </section>
