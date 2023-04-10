@@ -33,8 +33,7 @@ export function TaskItem({ description, onUpdateStatusTask, hasFinished, onDelet
         />
       </div>
       <p>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
+        {description}
       </p>
       <button title="Deletar Tarefa" onClick={handleDeleteTask}>
         <Trash
