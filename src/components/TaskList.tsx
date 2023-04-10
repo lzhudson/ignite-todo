@@ -13,7 +13,9 @@ interface TaskListProps {
 export function TaskList({ tasks, onUpdateStatusTask, onDeleteTask }: TaskListProps) {
   return (
     <div className={styles.taskListContainer}>
-      <TaskHeader />
+      <TaskHeader 
+        tasks={tasks}
+      />
       {tasks ? (
         <ul className={styles.taskList}>
           {tasks.map(task => (
