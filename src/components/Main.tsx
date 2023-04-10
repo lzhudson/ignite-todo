@@ -3,7 +3,7 @@ import { FormAddNewTask } from "./FormAddNewTask";
 import styles from './Main.module.css';
 import { TaskList } from "./TaskList";
 
-interface Task {
+export interface Task {
   id: string;
   description: string;
   hasFinished: boolean;
@@ -21,6 +21,17 @@ export function Main() {
     setTasks(prevState => [...prevState, task])
   }
 
+  function toggleFinishTask(taskReceived : Task) {
+    const tasksUpdated = tasks.map(task => {
+      if(taskReceived.id === task.id) {
+        taskReceived.hasFinished = !taskReceived.hasFinished;
+        return taskReceived;
+      }
+      return taskReceived;
+    })
+    setTasks(tasksUpdated);
+  }
+
   return (
     <main>
       <section>
@@ -28,7 +39,10 @@ export function Main() {
           <FormAddNewTask 
             onAddNewTask={addNewTask}
           />
-          <TaskList />
+          <TaskList 
+            tasks={tasks}
+            onUpdateStatusTask={toggleFinishTask}
+          />
         </div>
       </section>
     </main>
