@@ -3,8 +3,6 @@ import styles from './TaskItem.module.css';
 import { useState } from "react";
 export function TaskItem() {
   const [hasFinishedTask, setHasFinisihedTask] = useState(false);
-  console.log(hasFinishedTask)
-  console.log(styles)
   return (
     <li className={`${styles.taskItem} ${hasFinishedTask ? styles.taskItemFinished : ''}`}>
       <div className={styles.taskItemRadioGroup}>
