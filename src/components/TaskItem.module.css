@@ -74,6 +74,7 @@
   border: none;
   background-color: transparent;
   line-height: 0;
+  margin-left: auto;
 }
 .taskItem > button:hover {
   background-color: var(--gray-400);
