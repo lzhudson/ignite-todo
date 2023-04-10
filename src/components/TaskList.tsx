@@ -6,10 +6,11 @@ import styles from './TaskList.module.css';
 
 interface TaskListProps {
   tasks: Task[];
-  onUpdateStatusTask: (task: Task) => void
+  onUpdateStatusTask: (task: Task) => void;
+  onDeleteTask: (taskId : string) => void;
 }
 
-export function TaskList({ tasks, onUpdateStatusTask }: TaskListProps) {
+export function TaskList({ tasks, onUpdateStatusTask, onDeleteTask }: TaskListProps) {
   return (
     <div className={styles.taskListContainer}>
       <TaskHeader />
@@ -21,6 +22,7 @@ export function TaskList({ tasks, onUpdateStatusTask }: TaskListProps) {
               description={task.description}
               hasFinished={task.hasFinished}
               onUpdateStatusTask={() => onUpdateStatusTask(task)}
+              onDeleteTask={() => onDeleteTask(task.id)}
             />
           ))}
         </ul>
