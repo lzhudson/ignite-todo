@@ -1,0 +1,25 @@
+.taskHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.tasksCreatedContainer, .tasksFinishedContainer {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.tasksCreatedContainer span, .tasksFinishedContainer span {
+  padding: 2px 8px;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  border-radius: 10000px;
+  font-size: 0.75rem;
+}
+
+.tasksCreatedContainer {
+  color: var(--blue);
+}
+
+.tasksFinishedContainer {
+  color: var(--purple);
+}
